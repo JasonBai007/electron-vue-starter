@@ -30,6 +30,7 @@
 	"devDependencies": {
 		"electron": "^8.0.1",
 		"electron-builder": "^21.2.0",
+		"electron-reloader": "^1.0.0",
 		"np": "^5.0.3",
 		"xo": "^0.25.3"
 	},

@@ -2,7 +2,7 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	background: transparent;
+	background: #fff;
 }
 
 /* Use OS default fonts */

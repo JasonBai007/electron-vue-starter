@@ -1,20 +1,20 @@
-'use strict';
-const path = require('path');
-const {app, BrowserWindow, Menu} = require('electron');
+"use strict";
+const path = require("path");
+const { app, BrowserWindow, Menu } = require("electron");
 /// const {autoUpdater} = require('electron-updater');
-const {is} = require('electron-util');
-const unhandled = require('electron-unhandled');
-const debug = require('electron-debug');
-const contextMenu = require('electron-context-menu');
-const config = require('./config');
-const menu = require('./menu');
+const { is } = require("electron-util");
+const unhandled = require("electron-unhandled");
+const debug = require("electron-debug");
+const contextMenu = require("electron-context-menu");
+const config = require("./config");
+const menu = require("./menu");
 
 unhandled();
 debug();
 contextMenu();
 
 // Note: Must match `build.appId` in package.json
-app.setAppUserModelId('com.company.AppName');
+app.setAppUserModelId("com.company.AppName");
 
 // Uncomment this before publishing your first version.
 // It's commented out as it throws an error if there are no published versions.
@@ -38,17 +38,17 @@ const createMainWindow = async () => {
 		height: 400
 	});
 
-	win.on('ready-to-show', () => {
+	win.on("ready-to-show", () => {
 		win.show();
 	});
 
-	win.on('closed', () => {
+	win.on("closed", () => {
 		// Dereference the window
 		// For multiple windows store them in an array
 		mainWindow = undefined;
 	});
 
-	await win.loadFile(path.join(__dirname, 'index.html'));
+	await win.loadFile(path.join(__dirname, "index.html"));
 
 	return win;
 };
@@ -58,7 +58,7 @@ if (!app.requestSingleInstanceLock()) {
 	app.quit();
 }
 
-app.on('second-instance', () => {
+app.on("second-instance", () => {
 	if (mainWindow) {
 		if (mainWindow.isMinimized()) {
 			mainWindow.restore();
@@ -68,13 +68,13 @@ app.on('second-instance', () => {
 	}
 });
 
-app.on('window-all-closed', () => {
+app.on("window-all-closed", () => {
 	if (!is.macos) {
 		app.quit();
 	}
 });
 
-app.on('activate', async () => {
+app.on("activate", async () => {
 	if (!mainWindow) {
 		mainWindow = await createMainWindow();
 	}
@@ -85,6 +85,14 @@ app.on('activate', async () => {
 	Menu.setApplicationMenu(menu);
 	mainWindow = await createMainWindow();
 
-	const favoriteAnimal = config.get('favoriteAnimal');
-	mainWindow.webContents.executeJavaScript(`document.querySelector('header p').textContent = 'Your favorite animal is ${favoriteAnimal}'`);
+	const favoriteAnimal = config.get("favoriteAnimal");
+	mainWindow.webContents.executeJavaScript(
+		`document.querySelector('header p').textContent = 'Your favorite animal is ${favoriteAnimal}'`
+	);
 })();
+
+try {
+	require("electron-reloader")(module, {
+		debug: true
+	});
+} catch (_) {}
