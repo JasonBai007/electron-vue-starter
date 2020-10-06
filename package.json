@@ -28,7 +28,7 @@
 		"electron-util": "^0.13.0"
 	},
 	"devDependencies": {
-		"electron": "^8.0.1",
+		"electron": "^8.5.2",
 		"electron-builder": "^21.2.0",
 		"electron-reloader": "^1.0.0",
 		"np": "^5.0.3",
