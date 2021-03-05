@@ -15,8 +15,8 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: `${__static}/app.png`,  //设置桌面图标
     webPreferences: {
-      icon: `${__static}/favicon.ico`,  //设置桌面图标
       webSecurity: false, // 取消跨域限制      
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
