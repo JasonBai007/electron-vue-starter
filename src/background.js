@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow, Menu } from 'electron'
+import { app, protocol, BrowserWindow, Menu, globalShortcut } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -15,13 +15,18 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: `${__static}/app.png`,  //设置桌面图标
+    icon: `${__static}/favicon.ico`,  //设置桌面图标
     webPreferences: {
       webSecurity: false, // 取消跨域限制      
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
     }
+  })
+
+  // 在开发环境和生产环境均可通过快捷键打开devTools
+  globalShortcut.register('CommandOrControl+F12', function () {
+    win.webContents.openDevTools()
   })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -86,7 +91,7 @@ app.on('ready', async () => {
     } catch (e) {
       console.error('Vue Devtools failed to install:', e.toString())
     }
-  }
+  }  
   createWindow()
 })
 
