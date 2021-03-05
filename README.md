@@ -1,5 +1,12 @@
 # electron-vue-starter
 
+## Tech Stack
+
+1. Vue 2.x
+2. vue-cli 3.x or 4.x
+3. vue-cli-plugin-electron-builder
+4. electron 
+
 ## Project setup
 ```
 yarn install
