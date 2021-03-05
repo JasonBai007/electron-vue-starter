@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -16,7 +16,8 @@ async function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      
+      // icon: `${__static}/app.ico`,  //设置桌面图标
+      webSecurity: false, // 取消跨域限制      
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
@@ -33,6 +34,31 @@ async function createWindow() {
     win.loadURL('app://./index.html')
   }
 }
+
+// 一些菜单的自定义设置，初始项目没有以下代码，如果需要，请解除注释
+// 更多关于菜单栏设置，请参阅：
+// https://link.zhihu.com/?target=https%3A//electronjs.org/docs/api/menu
+// function createMenu() {
+//   // darwin表示macOS，针对macOS的设置
+//   if (process.platform === 'darwin') {
+//       const template = [
+//       {
+//           label: 'App Demo',
+//           submenu: [
+//               {
+//                   role: 'about'
+//               },
+//               {
+//                   role: 'quit'
+//               }]
+//       }]
+//       let menu = Menu.buildFromTemplate(template)
+//       Menu.setApplicationMenu(menu)
+//   } else {
+//       // windows及linux系统
+//       Menu.setApplicationMenu(null)
+//   }
+// }
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

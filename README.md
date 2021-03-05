@@ -7,16 +7,21 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+npm run electron:serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+npm run electron:build
 ```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Useful Links
+
+1. [Vue CLI Plugin Electron Builder](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
+2. [教程源地址](https://zhuanlan.zhihu.com/p/75764907)
 
 ## How to Install this Project
 
