@@ -9,7 +9,7 @@
 
 ## Project setup
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
@@ -22,16 +22,13 @@ npm run electron:serve
 npm run electron:build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 ## Useful Links
-
+0. [Vue-cli](https://cli.vuejs.org/config/)
 1. [Vue CLI Plugin Electron Builder](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
 2. [教程源地址](https://zhuanlan.zhihu.com/p/75764907)
 
-## How to Install this Project
 
+## Installation
 ```
 # 设置npm的镜像源
 npm config set registry https://registry.npm.taobao.org
