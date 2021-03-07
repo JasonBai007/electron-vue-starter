@@ -5,7 +5,9 @@
 1. Vue 2.x
 2. vue-cli 3.x or 4.x
 3. vue-cli-plugin-electron-builder
-4. electron 
+4. electron 12
+5. element-ui 2.15.1
+6. axios
 
 ## Project setup
 ```
