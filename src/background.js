@@ -26,11 +26,11 @@ async function createWindow() {
 
   // 仅在开发环境可通过快捷键Ctrl+F12打开devTools
   // 不能单独设置F12快捷键，因为F12是系统保留快捷键，无法使用
-  if (isDevelopment) {
+  // if (isDevelopment) {
     globalShortcut.register('CommandOrControl+F12', function () {
       win.webContents.openDevTools()
     })
-  }
+  // }
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
