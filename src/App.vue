@@ -1,12 +1,27 @@
 <template>
   <div id="app">
+    {{location}}
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: "app",
+  data() {
+    return {};
+  },
+  computed: {
+    location() {
+      return this.$route.path;
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
