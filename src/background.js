@@ -24,10 +24,13 @@ async function createWindow() {
     }
   })
 
-  // 在开发环境和生产环境均可通过快捷键打开devTools
-  globalShortcut.register('CommandOrControl+F12', function () {
-    win.webContents.openDevTools()
-  })
+  // 仅在开发环境可通过快捷键Ctrl+F12打开devTools
+  // 不能单独设置F12快捷键，因为F12是系统保留快捷键，无法使用
+  if (isDevelopment) {
+    globalShortcut.register('CommandOrControl+F12', function () {
+      win.webContents.openDevTools()
+    })
+  }
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -91,7 +94,7 @@ app.on('ready', async () => {
     } catch (e) {
       console.error('Vue Devtools failed to install:', e.toString())
     }
-  }  
+  }
   createWindow()
 })
 
