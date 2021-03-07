@@ -4,10 +4,11 @@
 
 1. Vue 2.x
 2. vue-cli 3.x or 4.x
-3. vue-cli-plugin-electron-builder
+3. vue-cli-plugin-electron-builder 2.0
 4. electron 12
 5. element-ui 2.15.1
 6. axios
+7. echarts 5.0
 
 ## Project setup
 ```

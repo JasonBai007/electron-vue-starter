@@ -23,6 +23,7 @@ export default {
       this.myChart.setOption({
         title: {
           text: "ECharts 入门示例",
+          left:'center'
         },
         tooltip: {},
         xAxis: {
@@ -43,7 +44,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 #container {
-  width: 300px;
-  height: 200px;
+  width: 700px;
+  height: 300px;
+  margin: 20px auto;
 }
 </style>
