@@ -10,15 +10,15 @@ module.exports = {
         // can be overwritten by process.env.HOST
         host: '0.0.0.0',
         port: 8080,
-        proxy: {
-            "/api": {
-                target: "http://news.baidu.com",
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/api': '/', // remove base path
-                },
-            },
-        },
+        // proxy: {
+        //     "/api": {
+        //         target: "http://news.baidu.com",
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api': '/', // remove base path
+        //         },
+        //     },
+        // },
     },
     chainWebpack: config => {
         config.resolve.alias

@@ -2,7 +2,7 @@
   <div class="about">
     <h1>This is an about page</h1>
     <p>Press Ctrl+F12 to open Dev tools to check Network.</p>
-    <el-button type="primary" @click="getData" size="small">Get XHR Data</el-button>
+    <el-button type="primary" @click="getData" size="small">Fetch Data</el-button>
     <pre>{{resData}}</pre>
   </div>
 </template>
@@ -18,9 +18,13 @@ export default {
   mounted() {},
   methods: {
     getData() {
-      this.$http.get("passport").then((res) => {
-        this.resData = JSON.stringify(res, null, 4);
-      });
+      fetch("http://news.baidu.com/passport")
+        .then((res) => {
+          return res.json();
+        })
+        .then((resJson) => {
+          this.resData = JSON.stringify(resJson, null, 4);
+        });      
     },
   },
 };
