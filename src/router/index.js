@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    // alias: '/index.html',
+    // alias: '/index.html', // 如果是history模式
     name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
@@ -26,7 +26,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'hash', // 必须是hash模式
   base: process.env.BASE_URL,
   routes
 })
