@@ -13,8 +13,8 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 700,
     icon: `${__static}/favicon.ico`,  //设置桌面图标
     webPreferences: {
       webSecurity: false, // 取消跨域限制      
@@ -24,12 +24,12 @@ async function createWindow() {
     }
   })
 
-  // 仅在开发环境可通过快捷键Ctrl+F12打开devTools
+  // 注册快捷键Ctrl+F12打开devTools
   // 不能单独设置F12快捷键，因为F12是系统保留快捷键，无法使用
   // if (isDevelopment) {
-    globalShortcut.register('CommandOrControl+F12', function () {
-      win.webContents.openDevTools()
-    })
+  globalShortcut.register('CommandOrControl+F12', function () {
+    win.webContents.openDevTools()
+  })
   // }
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -39,6 +39,7 @@ async function createWindow() {
   } else {
     createProtocol('app')
     // Load the index.html when not in development
+    // By default, the app protocol is used to load files. This allows you to use ES6 type="module" scripts
     win.loadURL('app://./index.html')
   }
 }

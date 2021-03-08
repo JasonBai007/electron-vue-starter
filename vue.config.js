@@ -25,5 +25,22 @@ module.exports = {
             .set('@', resolve('src'))
             .set('src', resolve('src'))
             .set('components', resolve('src/components'));
+    },
+    pluginOptions: {
+        // 打包编译配置项
+        electronBuilder: {
+            builderOptions: {
+                // options placed here will be merged with default configuration and passed to electron-builder
+                // 具体配置项：https://www.electron.build/configuration/configuration
+                // outputDir: 'dist_electron'
+                // win: {
+                //     icon: './public/app.ico'
+                // },
+                // mac: {
+                //     icon: './public/app.png'
+                // },
+                // productName: 'AppDemo'
+            }
+        }
     }
 };
